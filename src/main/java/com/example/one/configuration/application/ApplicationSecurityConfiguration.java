@@ -12,7 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(securedEnabled=true)
+@EnableGlobalMethodSecurity(securedEnabled = true)
 public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private final JisUserDetailsService jisUserDetailsService;
@@ -36,6 +36,7 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
                 .and().exceptionHandling() //exception handling configuration
                 .accessDeniedPage("/jis/error");
     }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
