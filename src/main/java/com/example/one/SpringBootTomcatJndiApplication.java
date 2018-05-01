@@ -55,6 +55,15 @@ public class SpringBootTomcatJndiApplication {
                 matrixContextResource.setProperty("password", "Masouridis50");
                 context.getNamingResources().addResource(matrixContextResource);
 
+                ContextResource securityContextResource = new ContextResource();
+                securityContextResource.setName("securityDataSource");
+                securityContextResource.setType(DataSource.class.getName());
+                securityContextResource.setProperty("driverClassName", "com.mysql.jdbc.Driver");
+                securityContextResource.setProperty("url", "jdbc:mysql://localhost/security_database");
+                securityContextResource.setProperty("username", "cdvdis");
+                securityContextResource.setProperty("password", "Masouridis50");
+                context.getNamingResources().addResource(securityContextResource);
+
 
             }
         };
