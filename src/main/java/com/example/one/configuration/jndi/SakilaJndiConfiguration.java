@@ -1,4 +1,4 @@
-package com.example.one.configuration;
+package com.example.one.configuration.jndi;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -16,27 +16,27 @@ import javax.sql.DataSource;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        basePackages = "com.example.one.repositories.security",
-        entityManagerFactoryRef = "securityEntityManager",
-        transactionManagerRef = "securityTransactionManager"
+        basePackages = "com.example.one.repositories.sakila",
+        entityManagerFactoryRef = "sakilaEntityManager",
+        transactionManagerRef = "sakilaTransactionManager"
 )
-public class SecurityJndiConfiguration {
+public class SakilaJndiConfiguration {
 
-    @Value("${spring.datasource.third.jndi-name}")
-    private String securityJndiName;
+    @Value("${spring.datasource.first.jndi-name}")
+    private String primaryJndiName;
 
     @Bean
-    public DataSource securityDataSource() {
+    public DataSource sakilaDataSource() {
         final JndiDataSourceLookup dsLookup = new JndiDataSourceLookup();
         dsLookup.setResourceRef(true);
-        DataSource dataSource = dsLookup.getDataSource(securityJndiName);
+        DataSource dataSource = dsLookup.getDataSource(primaryJndiName);
         return dataSource;
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean securityEntityManager() {
+    public LocalContainerEntityManagerFactoryBean sakilaEntityManager() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-        em.setDataSource(securityDataSource());
+        em.setDataSource(sakilaDataSource());
         em.setPackagesToScan(new String[]{"com.example.one.domain"});
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -44,9 +44,9 @@ public class SecurityJndiConfiguration {
     }
 
     @Bean
-    public PlatformTransactionManager securityTransactionManager() {
+    public PlatformTransactionManager sakilaTransactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(securityEntityManager().getObject());
+        transactionManager.setEntityManagerFactory(sakilaEntityManager().getObject());
         return transactionManager;
     }
 }

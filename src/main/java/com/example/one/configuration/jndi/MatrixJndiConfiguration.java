@@ -1,4 +1,4 @@
-package com.example.one.configuration;
+package com.example.one.configuration.jndi;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
