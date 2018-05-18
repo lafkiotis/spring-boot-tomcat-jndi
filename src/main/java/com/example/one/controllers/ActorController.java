@@ -23,7 +23,7 @@ public class ActorController {
     }
 
     @GetMapping("actors")
-    public ResponseEntity<List<Actor>> getAllActors() {
+    public ResponseEntity<List<Actor>> getAllActors() throws InterruptedException {
         List<Actor> list = actorService.getAll();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }

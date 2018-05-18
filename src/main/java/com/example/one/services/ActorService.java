@@ -4,5 +4,5 @@ import com.example.one.domain.Actor;
 import java.util.List;
 
 public interface ActorService {
-    List<Actor> getAll();
+    List<Actor> getAll() throws InterruptedException;
 }
