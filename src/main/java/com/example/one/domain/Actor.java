@@ -4,13 +4,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "actor")
 @Getter
 @Setter
-public class Actor {
+public class Actor implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
