@@ -43,27 +43,27 @@ public class SpringBootTomcatJndiApplication {
                 sakilaContextResource.setName("sakilaDataSource");
                 sakilaContextResource.setType(DataSource.class.getName());
                 sakilaContextResource.setProperty("driverClassName", "com.mysql.cj.jdbc.Driver");
-                sakilaContextResource.setProperty("url", "jdbc:mysql://localhost/sakila?useSSL=false");
-                sakilaContextResource.setProperty("username", "cdvdis");
-                sakilaContextResource.setProperty("password", "Masouridis50");
+                sakilaContextResource.setProperty("url", "jdbc:mysql://192.168.48.135/sakila?useSSL=false");
+                sakilaContextResource.setProperty("username", "root");
+                sakilaContextResource.setProperty("password", "password");
                 context.getNamingResources().addResource(sakilaContextResource);
 
                 ContextResource matrixContextResource = new ContextResource();
                 matrixContextResource.setName("matrixDataSource");
                 matrixContextResource.setType(DataSource.class.getName());
                 matrixContextResource.setProperty("driverClassName", "com.mysql.cj.jdbc.Driver");
-                matrixContextResource.setProperty("url", "jdbc:mysql://localhost/matrix?useSSL=false");
-                matrixContextResource.setProperty("username", "cdvdis");
-                matrixContextResource.setProperty("password", "Masouridis50");
+                matrixContextResource.setProperty("url", "jdbc:mysql://192.168.48.135/matrix?useSSL=false");
+                matrixContextResource.setProperty("username", "root");
+                matrixContextResource.setProperty("password", "password");
                 context.getNamingResources().addResource(matrixContextResource);
 
                 ContextResource securityContextResource = new ContextResource();
                 securityContextResource.setName("securityDataSource");
                 securityContextResource.setType(DataSource.class.getName());
                 securityContextResource.setProperty("driverClassName", "com.mysql.cj.jdbc.Driver");
-                securityContextResource.setProperty("url", "jdbc:mysql://localhost/security_database?useSSL=false");
-                securityContextResource.setProperty("username", "cdvdis");
-                securityContextResource.setProperty("password", "Masouridis50");
+                securityContextResource.setProperty("url", "jdbc:mysql://192.168.48.135/security_database?useSSL=false");
+                securityContextResource.setProperty("username", "root");
+                securityContextResource.setProperty("password", "password");
                 context.getNamingResources().addResource(securityContextResource);
 
 
