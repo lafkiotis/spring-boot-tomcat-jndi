@@ -1,0 +1,21 @@
+spring:
+  profile:
+    active: redis
+  jmx:
+    enabled: false
+  datasource:
+    sakila:
+      jndi-name: java:/comp/env/sakilaDataSource
+    security:
+      jndi-name: java:/comp/env/securityDataSource
+  cache:
+    type: redis
+  redis:
+    host: 192.168.48.135
+    port: 6379
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+server:
+  port: 8090

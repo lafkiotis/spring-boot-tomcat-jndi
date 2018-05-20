@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 )
 public class SecurityJndiConfiguration {
 
-    @Value("${spring.datasource.third.jndi-name}")
+    @Value("${spring.datasource.security.jndi-name}")
     private String securityJndiName;
 
     @Bean

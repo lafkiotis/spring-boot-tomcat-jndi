@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 )
 public class SakilaJndiConfiguration {
 
-    @Value("${spring.datasource.first.jndi-name}")
+    @Value("${spring.datasource.sakila.jndi-name}")
     private String primaryJndiName;
 
     @Bean

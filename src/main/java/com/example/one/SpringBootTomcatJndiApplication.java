@@ -48,15 +48,6 @@ public class SpringBootTomcatJndiApplication {
                 sakilaContextResource.setProperty("password", "password");
                 context.getNamingResources().addResource(sakilaContextResource);
 
-                ContextResource matrixContextResource = new ContextResource();
-                matrixContextResource.setName("matrixDataSource");
-                matrixContextResource.setType(DataSource.class.getName());
-                matrixContextResource.setProperty("driverClassName", "com.mysql.cj.jdbc.Driver");
-                matrixContextResource.setProperty("url", "jdbc:mysql://192.168.48.135/matrix?useSSL=false");
-                matrixContextResource.setProperty("username", "root");
-                matrixContextResource.setProperty("password", "password");
-                context.getNamingResources().addResource(matrixContextResource);
-
                 ContextResource securityContextResource = new ContextResource();
                 securityContextResource.setName("securityDataSource");
                 securityContextResource.setType(DataSource.class.getName());
